@@ -1,0 +1,63 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Feb  6 01:02:37 2018
+
+@author: nraghuva
+"""
+
+def nearest_square(limit):
+    answer = 0
+    while (answer+1)**2 < limit:
+        answer += 1
+    return answer**2
+
+
+print(nearest_square(400))
+
+headlines = ["Local Bear Eaten by Man",
+             "Legislature Announces New Laws",
+             "Peasant Discovers Violence Inherent in System",
+             "Cat Rescues Fireman Stuck in Tree",
+             "Brave Knight Runs Away",
+             "Papperbok Review: Totally Triffic"]
+
+news_ticker = ""
+
+
+for headline in headlines:
+    news_ticker += headline + " "
+    if len(news_ticker) >= 140:
+        news_ticker = news_ticker[:140]
+        break
+    
+    
+print(news_ticker)
+
+"""
+The function below, check_answers(), is designed to take as input a list of 
+five answers from a quiz along with a list of the five correct solutions. 
+It checks the answers against the solutions and outputs a message. 
+The code currently functions as intended, but it's not an ideal implementation. 
+Feel free to run the code on your own machine to test it.
+"""
+#user_ans and actual_ans are list of boolean value
+def count_correct_answer(user_ans, actual_ans):
+    correct_ans = 0
+    
+    for i in range(0, len(user_ans)):
+        if user_ans[i] == actual_ans[i]:
+            correct_ans += 1
+
+    return correct_ans
+
+def check_answers(user_ans, actual_ans):
+    """
+   compares the answere provided to a multiple choice quiz and returns the results.
+    """
+    count_correct = count_correct_answer(user_ans, actual_ans)
+
+    if count_correct/5 > 0.7:
+        return "Congratulations, you passed the test! You scored " + str(count_correct) + " out of 5."
+    else:
+        return "Unfortunately, you did not pass. You scored " + str(count_correct) + " out of 5."
