@@ -48,7 +48,7 @@ print(myset.pop())
 print(myset)
 
 #sets are unordered hence there is not last element
-#if you get time then please google this concept
+#if you get time then please google it
 """
 Ans:
     this is because sets uses Dictionary to store the data without data
